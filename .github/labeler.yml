@@ -1,0 +1,4 @@
+team: team.md
+
+workflow:
+- any: ['.github/*']
