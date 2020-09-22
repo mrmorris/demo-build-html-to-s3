@@ -33,7 +33,20 @@ jobs:
           echo test, and deploy your project.
           mkdir build
           echo "<h1>Hello World</h1>" >> build/stuff.html
-          
+      
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: build
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: build
       - name: Deploy
         uses: jakejarvis/s3-sync-action@master
         with:
