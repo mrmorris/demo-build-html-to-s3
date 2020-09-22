@@ -47,6 +47,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: build
+          path: build
       - name: 'Echo download path'
         run: ls -R
       - name: Deploy
